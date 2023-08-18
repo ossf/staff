@@ -1,2 +1,2 @@
-# operations
-Repository to keep track of staff operations
+# Staff
+Repository to keep track of staff and operations
