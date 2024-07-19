@@ -1,0 +1,58 @@
+{
+  "organization": "ossf",
+  "repo": {
+    "name": "security-baseline",
+    "description": "Repo for security baseline",
+    "template": "ossf/project-template",
+    "private": "false"
+  },
+  "main_team": {
+      "name": "sig-security-baseline",
+      "parent_team": "test",
+      "privacy": "closed",
+      "notification_setting": "true",
+      "permission": "pull",
+      "members": [
+        {"github_id": "eddie-knight", "role": "maintainer"},
+        {"github_id": "mlieberman85", "role": "member"},
+        {"github_id": "puerco", "role": "member"},
+        {"github_id": "JustinCappos", "role": "member"},
+        {"github_id": "jkjell", "role": "member"},
+        {"github_id": "TheFoxAtWork", "role": "member"},
+        {"github_id": "david-a-wheeler", "role": "maintainer"},
+        {"github_id": "danajoyluck", "role": "member"}
+      ]
+  },
+   "sub_teams": [
+    {
+      "name": "sig-security-baseline-admin",
+      "parent_team": "sig-security-baseline",
+      "privacy": "closed",
+      "notification_setting": "true",
+      "permission": "admin",
+      "members": [
+        {"github_id": "david-a-wheeler", "role": "maintainer"},
+        {"github_id": "danajoyluck", "role": "maintainer"}
+      ]
+    },
+    {
+      "name": "sig-security-baseline-maintainer",
+      "parent_team": "sig-security-baseline",
+      "privacy": "closed",
+      "notification_setting": "true",
+      "permission": "maintain",
+      "members": [
+        {"github_id": "eddie-knight", "role": "maintainer"},
+        {"github_id": "JustinCappos", "role": "member"},
+        {"github_id": "jkjell", "role": "maintainer"},
+        {"github_id": "TheFoxAtWork", "role": "member"},
+        {"github_id": "david-a-wheeler", "role": "member"},
+        {"github_id": "danajoyluck", "role": "maintainer"}
+      ]
+    }
+  ],
+  "test_issue": {
+    "title": "Test issue after repo creation",
+    "body": "Test issue after repo creation"
+  }
+}

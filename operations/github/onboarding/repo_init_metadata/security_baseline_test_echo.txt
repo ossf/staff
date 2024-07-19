@@ -1,0 +1,156 @@
+danawang@DW-MacP onboarding % ./onboarding.sh -test -i ./repo_init_metadata/security_baseline_test.json -o ./repo_init_metadata/security_baseline_test_results.json 
+
+parent team ID lookup by name at API endpoint: https://api.github.com/orgs/ossf-test/teams/test
+Start making API call to GitHub
+200Completed API call to GitHub
+Start creating team
+Creating team sig-security-baseline with data: {
+  "name": "sig-security-baseline",
+  "parent_team_id": 10593567,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response code: Start making API call to GitHub
+201Completed API call to GitHub
+response.json
+./onboarding.sh: line 79: [: Start making API call to GitHub
+201Completed API call to GitHub: integer expression expected
+Successfully created team sig-security-baseline
+Start making API call to GitHub
+200Completed API call to GitHub
+Start creating team
+Creating team sig-security-baseline-admin with data: {
+  "name": "sig-security-baseline-admin",
+  "parent_team_id": 10595295,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response code: Start making API call to GitHub
+201Completed API call to GitHub
+response.json
+./onboarding.sh: line 79: [: Start making API call to GitHub
+201Completed API call to GitHub: integer expression expected
+Successfully created team sig-security-baseline-admin
+Start making API call to GitHub
+200Completed API call to GitHub
+Start creating team
+Creating team sig-security-baseline-maintainer with data: {
+  "name": "sig-security-baseline-maintainer",
+  "parent_team_id": 10595295,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response code: Start making API call to GitHub
+201Completed API call to GitHub
+response.json
+./onboarding.sh: line 79: [: Start making API call to GitHub
+201Completed API call to GitHub: integer expression expected
+Successfully created team sig-security-baseline-maintainer
+Start adding members to team
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck7 to sig-security-baseline
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck to sig-security-baseline
+Start adding members to team
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck7 to sig-security-baseline-admin
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck to sig-security-baseline-admin
+Start adding members to team
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck7 to sig-security-baseline-maintainer
+HTTP response code: Start making API call to GitHub
+200Completed API call to GitHub
+response.json
+./onboarding.sh: line 101: [: Start making API call to GitHub
+200Completed API call to GitHub: integer expression expected
+Successfully add danajoyluck to sig-security-baseline-maintainer
+Start creating repository
+Creating repo at endpoint https://api.github.com/repos/ossf/project-template/generate with data: {
+  "name": "security-baseline",
+  "owner": "ossf-test",
+  "private": false
+}
+HTTP response code: Start making API call to GitHub
+201Completed API call to GitHub
+response.json
+./onboarding.sh: line 137: [: Start making API call to GitHub
+201Completed API call to GitHub: integer expression expected
+Successfully created repository security-baseline
+Start assinging team permission to access repo
+Assigning repository security-baseline to team sig-security-baseline with pull permission with URL: https://api.github.com/orgs/ossf-test/teams/sig-security-baseline/repos/ossf-test/security-baseline
+HTTP response code: Start making API call to GitHub
+204Completed API call to GitHub
+response.json
+./onboarding.sh: line 159: [: Start making API call to GitHub
+204Completed API call to GitHub: integer expression expected
+Successfully assign team sig-security-baseline with pull permission access to repository security-baseline
+Start assinging team permission to access repo
+Assigning repository security-baseline to team sig-security-baseline-admin with admin permission with URL: https://api.github.com/orgs/ossf-test/teams/sig-security-baseline-admin/repos/ossf-test/security-baseline
+HTTP response code: Start making API call to GitHub
+204Completed API call to GitHub
+response.json
+./onboarding.sh: line 159: [: Start making API call to GitHub
+204Completed API call to GitHub: integer expression expected
+Successfully assign team sig-security-baseline-admin with admin permission access to repository security-baseline
+Start assinging team permission to access repo
+Assigning repository security-baseline to team sig-security-baseline-maintainer with maintain permission with URL: https://api.github.com/orgs/ossf-test/teams/sig-security-baseline-maintainer/repos/ossf-test/security-baseline
+HTTP response code: Start making API call to GitHub
+204Completed API call to GitHub
+response.json
+./onboarding.sh: line 159: [: Start making API call to GitHub
+204Completed API call to GitHub: integer expression expected
+Successfully assign team sig-security-baseline-maintainer with maintain permission access to repository security-baseline
+Start creating a test issue
+Creating test issue with data: {
+  "title": "Test issue after repo creation",
+  "body": "Test issue after repo creation"
+}
+HTTP response code: Start making API call to GitHub
+201Completed API call to GitHub
+response.json
+./onboarding.sh: line 185: [: Start making API call to GitHub
+201Completed API call to GitHub: integer expression expected
+Successfully created issue Test issue after repo creation
+Looking up members for team sig-security-baseline...
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Looking up members for team sig-security-baseline-admin...
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Looking up members for team sig-security-baseline-maintainer...
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Start making API call to GitHub
+200Completed API call to GitHub
+Script completed successfully.
