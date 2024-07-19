@@ -13,7 +13,7 @@ The plan is to:
 * Validate the above artifacts are created successfully
 
 ## Prerequisites
-* [Prerequist](Prerequisites) in the onboadring radme.md
+* [Prerequist](Prerequisites) in the onboarding readme.md
 * PR approved and code merged to main branch for [security_baseline.json](https://github.com/ossf/staff/blob/main/operations/github/onboarding/repo_init_metadata/security_baseline.json)
 
 ## Implementer
@@ -30,10 +30,10 @@ As soon as this plan is approved and merged to main.
 2. Run below command to
 * Create teams, 1 main team  and 2 sub teams with different repo roles
 * Add members to different teams, assign them team roles
-* Creat repo
+* Create repo
 * Assign teams' access to the repo
 * Create a test issue
-* Look up all the artigfacts created from above and write the search results to security_baseline_results.json
+* Look up all the artifacts created from above and write the search results to security_baseline_results.json
 ```
 ./onboarding.sh -prod -i ./repo_init_metadata/security_baseline.json -o ./repo_init_metadata/security_baseline_results.json
 
