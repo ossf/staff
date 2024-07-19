@@ -22,14 +22,16 @@ Naming convention
 To run the scripts, these conditions need to be met:
 #### Access Requirements
 * Organization Owner role in OpenSSF GitHub “ossf” org.
-* PAT with repo admin access and it needs to be an organization scope
+* fine grained PAT with repo admin access and it needs to be an organization scope because teams are created by organiation owners, and their permissions are managed by organization owners.
 #### Repository Template
 * "ossf/project-template" 
 #### Teams policy
 * [TAC policy on naming of teams, repos](https://github.com/ossf/tac/blob/main/policies/access.md)
 
 #### Constraints
-This script was develpped to avoid manual errors. It works but it needs enhacnements through issues and PR's. 
+This script was develpped fast to avoid manual provisioning errors. It works repeatedly successfully, it needs enhacnements through issues and PR's. The shell script is not elegant. 
 
+#### Opportunities
+Dr. Amanda Martin propseoed to use the approach of Infrastructure as Code (IaC) to provision repos a while ago. She is a visionary. Sigstore's approach is [being evaluated by SLSA SIG](https://github.com/ossf/staff/issues/3). We should follow the PR and reuse the same workong solution. A [staff issue](https://github.com/ossf/staff/issues/3) was raised fo this. 
 
 
