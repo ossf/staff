@@ -1,0 +1,113 @@
+danawang@DW-MacP onboarding % ./onboarding.sh -prod -i ./repo_init_metadata/security_baseline.json -o ./repo_init_metadata/security_baseline_results.json
+parent team ID lookup by name at API endpoint: https://api.github.com/orgs/ossf/teams/SIGs
+Start creating team
+Creating team sig-security-baseline with data: {
+  "name": "sig-security-baseline",
+  "parent_team_id": 7667137,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response Code: 201
+Successfully created team sig-security-baseline
+Start creating team
+Creating team sig-security-baseline-admin with data: {
+  "name": "sig-security-baseline-admin",
+  "parent_team_id": 10624964,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response Code: 201
+Successfully created team sig-security-baseline-admin
+Start creating team
+Creating team sig-security-baseline-maintainer with data: {
+  "name": "sig-security-baseline-maintainer",
+  "parent_team_id": 10624964,
+  "privacy": "closed",
+  "notification_setting": "true"
+}
+HTTP response Code: 201
+Successfully created team sig-security-baseline-maintainer
+Start adding members to team
+HTTP response code: 200
+Successfully added eddie-knight to sig-security-baseline
+HTTP response code: 200
+Successfully added mlieberman85 to sig-security-baseline
+HTTP response code: 200
+Successfully added puerco to sig-security-baseline
+HTTP response code: 200
+Successfully added JustinCappos to sig-security-baseline
+HTTP response code: 200
+Successfully added jkjell to sig-security-baseline
+HTTP response code: 200
+Successfully added TheFoxAtWork to sig-security-baseline
+HTTP response code: 200
+Successfully added david-a-wheeler to sig-security-baseline
+HTTP response code: 200
+Successfully added danajoyluck to sig-security-baseline
+Start adding members to team
+HTTP response code: 200
+Successfully added david-a-wheeler to sig-security-baseline-admin
+HTTP response code: 200
+Successfully added danajoyluck to sig-security-baseline-admin
+Start adding members to team
+HTTP response code: 200
+Successfully added eddie-knight to sig-security-baseline-maintainer
+HTTP response code: 200
+Successfully added JustinCappos to sig-security-baseline-maintainer
+HTTP response code: 200
+Successfully added jkjell to sig-security-baseline-maintainer
+HTTP response code: 200
+Successfully added TheFoxAtWork to sig-security-baseline-maintainer
+HTTP response code: 200
+Successfully added david-a-wheeler to sig-security-baseline-maintainer
+HTTP response code: 200
+Successfully added danajoyluck to sig-security-baseline-maintainer
+Start creating repository
+Creating repo at endpoint https://api.github.com/repos/ossf/project-template/generate with data: {
+  "name": "security-baseline",
+  "owner": "ossf",
+  "private": false
+}
+HTTP response code: 201
+Successfully created repository security-baseline
+Start assinging team permission to access repo
+Assigning team sig-security-baseline with pull access to repository security-baseline
+HTTP response code: 204
+Successfully assigned team sig-security-baseline with pull access to repository security-baseline
+Start assinging team permission to access repo
+Assigning team sig-security-baseline-admin with admin access to repository security-baseline
+HTTP response code: 204
+Successfully assigned team sig-security-baseline-admin with admin access to repository security-baseline
+Start assinging team permission to access repo
+Assigning team sig-security-baseline-maintainer with maintain access to repository security-baseline
+HTTP response code: 204
+Successfully assigned team sig-security-baseline-maintainer with maintain access to repository security-baseline
+Start creating a test issue
+Creating test issue with data: {
+  "title": "Test issue after repo creation",
+  "body": "Test issue after repo creation"
+}
+HTTP response code: 201
+Successfully created issue with title Test issue after repo creation
+Looking up members for team sig-security-baseline...
+Newly created members found.
+Member: jkjell, Role: member
+Member: mlieberman85, Role: member
+Member: david-a-wheeler, Role: maintainer
+Member: puerco, Role: member
+Member: Danajoyluck, Role: maintainer
+Member: eddie-knight, Role: maintainer
+Member: TheFoxAtWork, Role: member
+Looking up members for team sig-security-baseline-admin...
+Newly created members found.
+Member: david-a-wheeler, Role: maintainer
+Member: Danajoyluck, Role: maintainer
+Looking up members for team sig-security-baseline-maintainer...
+Newly created members found.
+Member: jkjell, Role: maintainer
+Member: david-a-wheeler, Role: maintainer
+Member: Danajoyluck, Role: maintainer
+Member: eddie-knight, Role: maintainer
+Member: TheFoxAtWork, Role: member
+Script completed successfully.
+
