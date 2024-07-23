@@ -8,7 +8,7 @@
   },
   "main_team": {
       "name": "sig-security-baseline",
-      "parent_team": "test",
+      "parent_team": "SIGs",
       "privacy": "closed",
       "notification_setting": "true",
       "permission": "pull",
@@ -20,7 +20,7 @@
         {"github_id": "jkjell", "role": "member"},
         {"github_id": "TheFoxAtWork", "role": "member"},
         {"github_id": "david-a-wheeler", "role": "maintainer"},
-        {"github_id": "danajoyluck", "role": "member"}
+        {"github_id": "danajoyluck", "role": "maintainer"}
       ]
   },
    "sub_teams": [
@@ -46,7 +46,7 @@
         {"github_id": "JustinCappos", "role": "member"},
         {"github_id": "jkjell", "role": "maintainer"},
         {"github_id": "TheFoxAtWork", "role": "member"},
-        {"github_id": "david-a-wheeler", "role": "member"},
+        {"github_id": "david-a-wheeler", "role": "maintainer"},
         {"github_id": "danajoyluck", "role": "maintainer"}
       ]
     }

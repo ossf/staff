@@ -35,17 +35,25 @@ if [ -z "$GITHUB_TOKEN" ]; then
     exit 1
 fi
 
+HTTP_RESPONSE_CODE_OK=200
+HTTP_RESPONSE_CODE_CREATED=201
+HTTP_RESPONSE_CODE_NO_CONTENT=204
 
-# Helper function to make GitHub API requests
+
+#Helper function to make GitHub API requests
 function github_api() {
-    echo "Start making API call to GitHub"
-
-    curl -s -o response.json -w "%{http_code}" -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "$@"
-
-    echo "Completed API call to GitHub"
+    # Perform the API call and capture the response and HTTP code separately
+    local response
+    response=$(curl -s -o response.json -w "%{http_code}" \
+        -H "Authorization: token $GITHUB_TOKEN" \
+        -H "Accept: application/vnd.github.v3+json" \
+        "$@")
+    
+    # Output the HTTP status code
+    echo "$response"
 }
 
-# Helper function to create a team
+
 function create_team() {
     echo "Start creating team"
 
@@ -69,16 +77,15 @@ function create_team() {
     # Debugging: print the JSON data being sent
     echo "Creating team $name with data: $data"
 
-    # Perform the API request
+     # Perform the API request
     http_code=$(github_api -X POST -d "$data" "https://api.github.com/orgs/$org/teams")
-    
-    # Debugging: print the HTTP response code and response body
-    echo "HTTP response code: $http_code"
-    echo response.json
 
-    if [ "$http_code" -ne 201 ]; then
+    echo "HTTP response Code: $http_code"
+    
+    if [ "$http_code" -ne $HTTP_RESPONSE_CODE_CREATED ]; then
         handle_error "Failed to create team $name. HTTP code: $http_code"
     fi
+    
     echo "Successfully created team $name"
 }
 
@@ -96,12 +103,11 @@ function add_members_to_team() {
 
         # Debugging: print the HTTP response code and response body
         echo "HTTP response code: $http_code"
-        echo response.json
 
-        if [ "$http_code" -ne 200 ]; then
+        if [ "$http_code" -ne $HTTP_RESPONSE_CODE_OK ]; then
             handle_error "Failed to add member $member to team $team_slug. HTTP code: $http_code"
         fi
-        echo "Successfully add $member to $team_slug"
+        echo "Successfully added $member to $team_slug"
     done
 }
 
@@ -132,9 +138,8 @@ function create_repo() {
     
     # Debugging: print the HTTP response code and response body
     echo "HTTP response code: $http_code"
-    echo response.json
 
-    if [ "$http_code" -ne 201 ]; then
+    if [ "$http_code" -ne $HTTP_RESPONSE_CODE_CREATED ]; then
         handle_error "Failed to create repo $repo_name. HTTP code: $http_code"
     fi
     echo "Successfully created repository $repo_name"
@@ -149,18 +154,18 @@ function assign_team_permission() {
     local repo_name=$3
     local permission=$4
 
-    echo "Assigning repository $repo_name to team $team_slug with $permission permission with URL: https://api.github.com/orgs/$org/teams/$team_slug/repos/$org/$repo_name"
+    echo "Assigning team $team_slug with $permission access to repository $repo_name"
+
     http_code=$(github_api -X PUT "https://api.github.com/orgs/$org/teams/$team_slug/repos/$org/$repo_name" -d "{\"permission\":\"$permission\"}")
 
     # Debugging: print the HTTP response code and response body
     echo "HTTP response code: $http_code"
-    echo response.json
 
-    if [ "$http_code" -ne 204 ]; then
+    if [ "$http_code" -ne $HTTP_RESPONSE_CODE_NO_CONTENT ]; then
         handle_error "Failed to assign repository $repo_name to team $team_slug. HTTP code: $http_code"
     fi
 
-    echo "Successfully assign team $team_slug with $permission permission access to repository $repo_name"
+    echo "Successfully assigned team $team_slug with $permission access to repository $repo_name"
 }
 
 # Helper function to create a test issue
@@ -180,12 +185,12 @@ function create_test_issue() {
 
     # Debugging: print the HTTP response code and response body
     echo "HTTP response code: $http_code"
-    echo response.json
 
-    if [ "$http_code" -ne 201 ]; then
+    if [ "$http_code" -ne $HTTP_RESPONSE_CODE_CREATED ]; then
         handle_error "Failed to create test issue. HTTP code: $http_code"
     fi
-    echo "Successfully created issue $issue_title"
+
+    echo "Successfully created issue with title $issue_title"
 }
 
 # Function to lookup team members and their roles
@@ -195,17 +200,20 @@ function lookup_team_members() {
 
     echo "Looking up members for team $team_name..."
 
-    github_api -X GET "https://api.github.com/orgs/$org/teams/$team_name/members"
+    http_code=$(github_api -X GET "https://api.github.com/orgs/$org/teams/$team_name/members")
     members=$(jq '.' response.json)
 
     if [ -z "$members" ]; then
         handle_error "No members found for team $team_name."
     fi
 
+    echo "Newly created members found."
+
     echo "Team $team_name members and roles:" >> "$OUTPUT_FILE"
     for member in $(echo "$members" | jq -r '.[].login'); do
-        github_api -X GET "https://api.github.com/orgs/$org/teams/$team_name/memberships/$member"
+        http_code=$(github_api -X GET "https://api.github.com/orgs/$org/teams/$team_name/memberships/$member")
         role=$(jq -r '.role' response.json)
+        echo "Member: $member, Role: $role"
         echo "Member: $member, Role: $role" >> "$OUTPUT_FILE"
     done
 }
@@ -223,11 +231,11 @@ MAIN_TEAM_PARENT=$(echo "$MAIN_TEAM" | jq -r '.parent_team')
 MAIN_TEAM_PRIVACY=$(echo "$MAIN_TEAM" | jq -r '.privacy')
 MAIN_TEAM_NOTIFICATION=$(echo "$MAIN_TEAM" | jq -r '.notification_setting')
 
-# Get parent team ID
+#Get parent team ID
 if [ -n "$MAIN_TEAM_PARENT" ]; then
     echo "parent team ID lookup by name at API endpoint: https://api.github.com/orgs/$ORG/teams/$MAIN_TEAM_PARENT"
 
-    github_api -X GET "https://api.github.com/orgs/$ORG/teams/$MAIN_TEAM_PARENT"
+    http_code=$(github_api -X GET "https://api.github.com/orgs/$ORG/teams/$MAIN_TEAM_PARENT")
     PARENT_TEAM_ID=$(jq -r '.id' response.json)
 
     if [ -z "$PARENT_TEAM_ID" ]; then
@@ -237,7 +245,7 @@ else
     handle_error "Missing data: parent team name for $MAIN_TEAM"
 fi
 
-# Create  main team
+# Create  main team 
 create_team "$ORG" "$MAIN_TEAM_NAME" "$PARENT_TEAM_ID" "$MAIN_TEAM_PRIVACY" "$MAIN_TEAM_NOTIFICATION"
 
 # Create sub-teams
@@ -252,7 +260,7 @@ for sub_team in $(echo "$SUB_TEAMS" | jq -r '.name'); do
 
     # Get parent team ID
     if [ -n "$SUB_TEAM_PARENT" ]; then
-        github_api -X GET "https://api.github.com/orgs/$ORG/teams/$SUB_TEAM_PARENT"
+        http_code=$(github_api -X GET "https://api.github.com/orgs/$ORG/teams/$SUB_TEAM_PARENT")
         PARENT_TEAM_ID=$(jq -r '.id' response.json)
 
         if [ -z "$PARENT_TEAM_ID" ]; then
@@ -276,7 +284,7 @@ for sub_team in $(echo "$SUB_TEAMS" | jq -r '.name'); do
     add_members_to_team "$ORG" "$sub_team" "$SUB_TEAM_MEMBERS"
 done
 
-# Create the repo
+# # Create the repo
 
 # Get repo details
 REPO_NAME=$(echo "$DATA" | jq -r '.repo.name')
@@ -343,7 +351,6 @@ for sub_team in $(echo "$SUB_TEAMS" | jq -r '.name'); do
 done
 
 # Lookup the test issue and append details to the output file
-#lookup_test_issue "$ORG" "$REPO_NAME" "$ISSUE_TITLE"
 ISSUE_SETTINGS=$(github_api -X GET "https://api.github.com/repos/$ORG/$REPO_NAME/issues")
 echo "Test issue created" >> "$OUTPUT_FILE"
 echo "$ISSUE_SETTINGS" | jq '.' response.json >> "$OUTPUT_FILE"
