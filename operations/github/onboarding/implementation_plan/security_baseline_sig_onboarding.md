@@ -13,7 +13,7 @@ The plan is to:
 * Validate the above artifacts are created successfully
 
 ## Prerequisites
-* [Prerequist](Prerequisites) in the onboarding readme.md
+* [Prerequist](https://github.com/ossf/staff/blob/main/operations/github/onboarding/readme.md#prerequisites) in the onboarding readme.md
 * PR approved and code merged to main branch for [security_baseline.json](https://github.com/ossf/staff/blob/main/operations/github/onboarding/repo_init_metadata/security_baseline.json)
 
 ## Implementer
