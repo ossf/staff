@@ -63,8 +63,7 @@ def disable_secret_scanning_and_push_protection_settings(access_token):
 
     if response.status_code == 204:
             return True
-    else:
-        print(f"Error: Response code is invalid for updating security policies")
+    print("Error: Response code is invalid for updating security policies")
     return False
 
 
