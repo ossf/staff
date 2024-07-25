@@ -48,7 +48,7 @@ def api_patch(access_token, url, data):
 def set_secret_scanning_and_push_protection_settings(access_token):
     url = "https://api.github.com/enterprises/openssf/code_security_and_analysis"
     data = {"secret_scanning_enabled_for_new_repositories":True,"secret_scanning_push_protection_enabled_for_new_repositories":True}
-    response = api_patch(access_token, url, json=data)
+    response = api_patch(access_token, url, data)
     if response.status_code == 204:
         return True
     else:
@@ -59,7 +59,7 @@ def set_secret_scanning_and_push_protection_settings(access_token):
 def disable_secret_scanning_and_push_protection_settings(access_token):
     url = "https://api.github.com/enterprises/openssf/code_security_and_analysis"
     data = {"secret_scanning_enabled_for_new_repositories":False,"secret_scanning_push_protection_enabled_for_new_repositories":False}
-    response = api_patch(access_token, url, json=data)
+    response = api_patch(access_token, url, data)
 
     if response.status_code == 204:
             return True
