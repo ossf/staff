@@ -20,20 +20,31 @@ Dana Wang
 August 1, 2024 5PM EST
 
 ## Impacts 
-The change will have impact to one member in OpenSSF enterprise unless the member enables 2FA before the change implementation time. The implementer has reached out the member via Slack and email. 
 
-Worst case scenario, if the member is not enabling 2FA by the implementation time, the implementer will coordinate with the member and the member's organization to restore their access and permssions. 
+The change will have ni impact to 224 of thw 225 members in various OpenSSF GitHub organization. 
+![no impact orgs](https://github.com/ossf/staff/blob/f5bb529a91cb013ba6c802cf9b64bc01e5fb2cc9/organizations_not_impacted.png)
+
+It will impact 1 of the 225 members in OpenSSF enterprise unless the member enables 2FA before the change implementation time. The implementer has reached out the member via Slack and email. 
+
+![one member has 2FA disabled](https://github.com/ossf/staff/blob/f5bb529a91cb013ba6c802cf9b64bc01e5fb2cc9/2FA_not_enabled_query_result.png)
+
+![email](https://github.com/ossf/staff/blob/f5bb529a91cb013ba6c802cf9b64bc01e5fb2cc9/Iimpacted_individual_outreach_email.png)
+
+![slack](https://github.com/ossf/staff/blob/f5bb529a91cb013ba6c802cf9b64bc01e5fb2cc9/Iimpacted_individual_outreach_slack.png)
+
+Worst case scenario, if the member is not enabling 2FA by the implementation time, the implementer will coordinate with the member and the member's organization to restore their access and permissions. 
 An organization owner can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization.
 For more information, see "Reinstating a former member of your organization."Members and outside collaborators who will be removed from the organizations owned by your enterprise. The access can be reinstated by setting them  
 
 ## Implementation
-Publish annoucnement first:
+Publish Announcement first:
 1. Log into GitHub.
 2. In the top-right corner of GitHub, click your profile photo, then click "Your enterprises".
 3. Click "Settings" next to "Open Source Security Foundation" enterprise.
-4. Under "Settings", click "Annoucement".
-5. Fill in all the informaiton as shown in screenshot, then click "Publish Annoucement"
-6. Verify annoucnement published by nvigaeting to personal forked staff repo.
+4. Under "Settings", click "Announcement".
+5. Fill in all the information as shown in screenshot, then click "Publish Announcement"
+   ![announcement](https://github.com/ossf/staff/blob/f5bb529a91cb013ba6c802cf9b64bc01e5fb2cc9/enterprise_annoucnemen_preview.png)
+7. Verify announcement published by navigating to personal forked staff repo.
 
 Follow [GitHub instructions](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account) for this change:
    
