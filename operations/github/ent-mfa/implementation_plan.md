@@ -22,15 +22,15 @@ August 6, 2024 5PM EST
 ## Impacts 
 
 The change will have no impact to 224 of the 225 members in various OpenSSF GitHub organization. 
-![no impact orgs](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/organizations_not_impacted.png)
+![no impact orgs](./images/organizations_not_impacted.png)
 
 It will impact 1 of the 225 members in OpenSSF enterprise unless the member enables 2FA before the change implementation time. The implementer has reached out the member via Slack and email. 
 
-![one member has 2FA disabled](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/2FA_not_enabled_query_result.png)
+![one member has 2FA disabled](./images/2FA_not_enabled_query_result.png)
 
-![email](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/impacted_individual_outreach_email.png)
+![email](./images/impacted_individual_outreach_email.png)
 
-![slack](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/impacted_individual_outreach_slack.png)
+![slack](./images/impacted_individual_outreach_slack.png)
 
 Worst case scenario, if the member is not enabling 2FA by the implementation time, the implementer will coordinate with the member and the member's organization to restore their access and permissions. 
 The member's organization owner can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from the organization.
@@ -43,7 +43,7 @@ Publish Announcement as soon as the implementation plan is approved:
 3. Click "Settings" next to "Open Source Security Foundation" enterprise.
 4. Under "Settings", click "Announcement".
 5. Fill in all the information as shown in screenshot, then click "Publish Announcement"
-   ![announcement](https://github.com/ossf/staff/blob/2d1b599691245c3d166564d7f2f6b2db11ef5f84/operations/github/ent-mfa/images/enterprise_annoucnemen_preview.png)
+   ![announcement](./images/enterprise_annoucnemen_preview.png)
 7. Verify announcement published by navigating to any OpenSSF repo.
 
 Follow [GitHub instructions](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account) for this change:
