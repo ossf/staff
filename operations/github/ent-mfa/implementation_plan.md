@@ -44,7 +44,7 @@ Publish Announcement as soon as the implementation plan is approved:
 4. Under "Settings", click "Announcement".
 5. Fill in all the information as shown in screenshot, then click "Publish Announcement"
    ![announcement](https://github.com/ossf/staff/blob/2d1b599691245c3d166564d7f2f6b2db11ef5f84/operations/github/ent-mfa/images/enterprise_annoucnemen_preview.png)
-7. Verify announcement published by navigating to personal forked staff repo.
+7. Verify announcement published by navigating to any OpenSSF repo.
 
 Follow [GitHub instructions](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account) for this change:
    
