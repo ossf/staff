@@ -21,7 +21,7 @@ August 6, 2024 5PM EST
 
 ## Impacts 
 
-The change will have ni impact to 224 of thw 225 members in various OpenSSF GitHub organization. 
+The change will have no impact to 224 of the 225 members in various OpenSSF GitHub organization. 
 ![no impact orgs](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/organizations_not_impacted.png)
 
 It will impact 1 of the 225 members in OpenSSF enterprise unless the member enables 2FA before the change implementation time. The implementer has reached out the member via Slack and email. 
@@ -33,8 +33,8 @@ It will impact 1 of the 225 members in OpenSSF enterprise unless the member enab
 ![slack](https://github.com/ossf/staff/blob/2543a62481f1b10b19a8c89f123847ef19723cb6/operations/github/ent-mfa/images/impacted_individual_outreach_slack.png)
 
 Worst case scenario, if the member is not enabling 2FA by the implementation time, the implementer will coordinate with the member and the member's organization to restore their access and permissions. 
-An organization owner can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization.
-For more information, see "Reinstating a former member of your organization."Members and outside collaborators who will be removed from the organizations owned by your enterprise. The access can be reinstated by setting them  
+The member's organization owner can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from the organization.
+For more information, see GitHub instruction on [Reinstating a former member of your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
 
 ## Implementation
 Publish Announcement as soon as the implementation plan is approved:
